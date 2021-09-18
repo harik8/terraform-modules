@@ -41,3 +41,7 @@ variable "region" {
 variable "stack" {
   default = "pipeline"
 }
+
+variable "test" {
+  default = "test variable"
+}
