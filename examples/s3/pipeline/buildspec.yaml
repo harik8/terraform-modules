@@ -1,0 +1,22 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - "yum install unzip -y"
+      - "wget 
+https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip"
+      - "unzip terraform_0.12.29_linux_amd64.zip"
+      - "mv terraform /usr/local/bin/"
+  pre_build:
+    commands:
+      - echo $(pwd)
+      - echo $(ls)
+      - cd s3
+      - echo $(ls)
+  build:
+    commands:
+      - echo "BUILDINGGGGGG..."
+      - echo "Running from S3...."
+  post_build:
+    commands:
+      - echo "terraform completed."
