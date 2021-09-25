@@ -8,10 +8,13 @@ phases:
       - "mv terragrunt_darwin_amd64 /usr/local/bin/terragrunt"
   pre_build:
     commands:
-      - terragrunt --version
+      - terragrunt init
   build:
     commands:
-      - terragrunt --version
+      - terragrunt plan -out plan.tf -input=false
   post_build:
     commands:
       - terragrunt --version
+  artifacts:
+  files:
+    - plan.tf
